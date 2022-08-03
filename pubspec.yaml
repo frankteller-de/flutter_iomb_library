@@ -1,6 +1,6 @@
 name: flutter_iomb_library
-description: Unoffical IOMb Flutter Library.
-version: 0.9.0+3
+description: Unoffical INFOnline Flutter Library Android/iOS (Zensus Messung IOMb)
+version: 0.9.0+5
 homepage: https://github.com/codeforce-dev/flutter_iomb_library
 repository: https://github.com/codeforce-dev/flutter_iomb_library
 
