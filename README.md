@@ -90,7 +90,7 @@ Future<void> main() async {
 
   await IombLibrary.instance.sessionConfiguration(
     baseURL: '<yourBaseURL>', 
-    offerIdentifier: '<yourIdentifier>',
+    offerIdentifier: Platform.isAndroid ? '<AndroidIdentifier>' : '<iOSIdentifier>',
   );
 
   await IombLibrary.instance.logViewEvent(
