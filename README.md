@@ -89,7 +89,7 @@ Future<void> main() async {
   await IombLibrary.instance.ios.setDebugLogLevel(IOMBDebugLevel.trace);
 
   await IombLibrary.instance.sessionConfiguration(
-    baseURL: '<yourBaseURL>', 
+    baseURL: Platform.isAndroid ? '<yourAndroidBaseURL>' : '<yourIosBaseURL>', 
     offerIdentifier: Platform.isAndroid ? '<AndroidIdentifier>' : '<iOSIdentifier>',
   );
 
