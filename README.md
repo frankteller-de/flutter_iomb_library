@@ -94,7 +94,7 @@ Future<void> main() async {
   );
 
   await IombLibrary.instance.logViewEvent(
-    type: IOMBViewEvent.appeared, 
+    type: IOMBViewEvent.appeared,
     category: '<yourCategory>'
   );
 }
