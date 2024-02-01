@@ -16,7 +16,7 @@ If you are interested in pseudonym measurements look at [flutter\_infonline_libr
 * ÖWA (INFOnline Library iOS/Android)
 
 ## Requirements
-- Dart sdk: `>=2.17.6 <3.0.0`
+- Dart sdk: `>=2.17.6 <4.0.0`
 - Flutter: `>=2.5.0`
 - Android: `minSdkVersion 19`
 - iOS: `minSdkVersion 11`
