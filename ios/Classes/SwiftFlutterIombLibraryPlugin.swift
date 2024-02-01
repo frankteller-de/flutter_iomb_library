@@ -11,7 +11,7 @@ public class SwiftFlutterIombLibraryPlugin: NSObject, FlutterPlugin {
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     let arguments = call.arguments as? NSDictionary
-    
+
     switch call.method {
       case "sessionConfiguration":
         sessionConfiguration(
@@ -28,15 +28,15 @@ public class SwiftFlutterIombLibraryPlugin: NSObject, FlutterPlugin {
           comment: arguments!["comment"] as? String
         )
         result(true)
-        break     
+        break
       case "terminateSession":
         terminateSession()
         result(true)
-        break 
+        break
       case "setDebugLogLevel":
         setDebugLogLevel(arguments!["level"] as! String)
         result(true)
-        break        
+        break
       default:
         result("iOS " + UIDevice.current.systemVersion)
         break
@@ -45,25 +45,25 @@ public class SwiftFlutterIombLibraryPlugin: NSObject, FlutterPlugin {
 
   private func sessionConfiguration(baseURL: String, offerIdentifier: String, hybridIdentifier: String?) {
     guard let url = URL(string: baseURL) else { return }
-    let configuration = IOMBSessionConfiguration(      
-      offerIdentifier: offerIdentifier,      
+    let configuration = IOMBSessionConfiguration(
+      offerIdentifier: offerIdentifier,
       hybridIdentifier: hybridIdentifier,
       baseURL: url
     )
-    IOMBSession.defaultSession.start(with: configuration)
+    IOMBSession.defaultSession(for: .iomb).start(with: configuration)
   }
 
   private func logViewEvent(type: String, category: String, comment: String?) {
     let types = ["appeared","refreshed","disappeared"]
     let eventType = IOMBViewEventType(rawValue: stringToEnumValue(type, values: types))!
     let event = IOMBViewEvent(type: eventType, category: category, comment: comment)
-    IOMBSession.defaultSession.logEvent(event)
+    IOMBSession.defaultSession(for: .iomb).logEvent(event)
   }
 
   private func terminateSession() {
-    IOMBSession.defaultSession.terminateSession()
+    IOMBSession.defaultSession(for: .iomb).terminateSession()
   }
-  
+
   private func setDebugLogLevel(_ level: String) {
     let levels = ["off","error","warning","info","trace"]
     let level = IOMBDebugLevel(rawValue: Int(stringToEnumValue(level, values: levels)))!
@@ -71,7 +71,7 @@ public class SwiftFlutterIombLibraryPlugin: NSObject, FlutterPlugin {
   }
 
   // Helper functions
-  
+
   private func stringToEnumValue(_ value: String, values: [String]) -> UInt {
       return UInt(values.firstIndex(where: {$0 == value}) ?? 0)
   }

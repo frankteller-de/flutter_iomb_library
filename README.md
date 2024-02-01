@@ -20,7 +20,7 @@ If you are interested in pseudonym measurements look at [flutter\_infonline_libr
 - Flutter: `>=2.5.0`
 - Android: `minSdkVersion 19`
 - iOS: `minSdkVersion 11`
-- native iOS and Android INFOnline libraries 
+- native iOS and Android INFOnline libraries
 
 You will get the native iOS and Android libraries via email from INFOnline Support. The native libraries are not public!
 
@@ -40,11 +40,11 @@ Also in Podfile add pod package under use_frameworks.
 ```bash
 target 'Runner' do
   use_frameworks!
-  pod 'IOMbLibrary', :git => 'https://repo.infonline.de/iom/base/sensors/app/ios.git'
+  pod 'IOMbLibrary', :git => 'https://<user>:<pass>@repo.infonline.de/iom/base/sensors/app/ios.git'
 end
 ```
 
-### Android 
+### Android
 Now open the ``android/app/build.gradle`` file and make sure your SDK version is >= 19.
 
 ```bash
@@ -54,7 +54,7 @@ android {
     targetSdkVersion 30
   }
 }
-``` 
+```
 
 Open the ``android/build.gradle`` and add the maven source.
 ```bash
@@ -89,7 +89,7 @@ Future<void> main() async {
   await IombLibrary.instance.ios.setDebugLogLevel(IOMBDebugLevel.trace);
 
   await IombLibrary.instance.sessionConfiguration(
-    baseURL: Platform.isAndroid ? '<yourAndroidBaseURL>' : '<yourIosBaseURL>', 
+    baseURL: Platform.isAndroid ? '<yourAndroidBaseURL>' : '<yourIosBaseURL>',
     offerIdentifier: Platform.isAndroid ? '<AndroidIdentifier>' : '<iOSIdentifier>',
   );
 
@@ -105,7 +105,7 @@ Future<void> main() async {
 ## Shared for all platforms
 ```dart
 IombLibrary.instance.sessionConfiguration(
-	baseURL: '<yourBaseURL>', 
+	baseURL: '<yourBaseURL>',
 	offerIdentifier: '<yourIdentifier>',
 );
 

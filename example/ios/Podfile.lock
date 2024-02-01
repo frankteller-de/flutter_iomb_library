@@ -7,7 +7,7 @@ PODS:
     - Flutter
   - flutter_iomb_library/IOMbLibrary (1.0.0):
     - IOMbLibrary
-  - IOMbLibrary (1.0.2)
+  - IOMbLibrary (1.1.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -24,14 +24,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   IOMbLibrary:
-    :commit: cc2b2b22f155668fb477a98cfa5504ff99d8b9af
+    :commit: e59ed3cea83640189ea8944255793856f1e3c4f4
     :git: https://repo.infonline.de/iom/base/sensors/app/ios.git
 
 SPEC CHECKSUMS:
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_iomb_library: 4d4fdf927ba2e43e93c461e29ef3f20f5bf25ec7
-  IOMbLibrary: bcbd383be009bf02c1ee2ea1e208952b8143244d
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_iomb_library: 50329ed75ba415aec35b9945e07260789ff1256e
+  IOMbLibrary: 3c5b95de6b08b9bedb2bb39c2c0fcda915c49551
 
-PODFILE CHECKSUM: 1f2dfb511f6dedb14b66fa8b6556f7c378e7462b
+PODFILE CHECKSUM: a930f70fb469fc0ae38c0214ce715033b8385204
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.0

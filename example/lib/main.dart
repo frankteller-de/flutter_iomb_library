@@ -8,7 +8,7 @@ void main() async {
   await IombLibrary.instance.ios.setDebugLogLevel(IOMBDebugLevel.trace);
 
   await IombLibrary.instance.sessionConfiguration(
-    baseURL: '<yourBaseURL>', 
+    baseURL: '<yourBaseURL>',
     offerIdentifier: '<yourIdentifier>',
   );
 
@@ -18,7 +18,7 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -37,9 +37,9 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('IombLibrary Plugin'),
         ),
-        body: Center(
+        body: const Center(
           child: Column(
-            children: const [
+            children: [
               Text('Running'),
             ],
           ),
