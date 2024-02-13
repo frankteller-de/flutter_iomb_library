@@ -1,0 +1,37 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_iomb_library (1.0.0):
+    - flutter_iomb_library/Flutter (= 1.0.0)
+    - flutter_iomb_library/IOMbLibrary (= 1.0.0)
+  - flutter_iomb_library/Flutter (1.0.0):
+    - Flutter
+  - flutter_iomb_library/IOMbLibrary (1.0.0):
+    - IOMbLibrary
+  - IOMbLibrary (1.1.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_iomb_library (from `.symlinks/plugins/flutter_iomb_library/ios`)
+  - "IOMbLibrary (from `https://ny6sEPs4cZJ3oViLS5Fg:ny6sEPs4cZJ3oViLS5F@repo.infonline.de/iom/base/sensors/app/ios.git`)"
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_iomb_library:
+    :path: ".symlinks/plugins/flutter_iomb_library/ios"
+  IOMbLibrary:
+    :git: "https://ny6sEPs4cZJ3oViLS5Fg:ny6sEPs4cZJ3oViLS5F@repo.infonline.de/iom/base/sensors/app/ios.git"
+
+CHECKOUT OPTIONS:
+  IOMbLibrary:
+    :commit: e59ed3cea83640189ea8944255793856f1e3c4f4
+    :git: "https://ny6sEPs4cZJ3oViLS5Fg:ny6sEPs4cZJ3oViLS5F@repo.infonline.de/iom/base/sensors/app/ios.git"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_iomb_library: 50329ed75ba415aec35b9945e07260789ff1256e
+  IOMbLibrary: 3c5b95de6b08b9bedb2bb39c2c0fcda915c49551
+
+PODFILE CHECKSUM: 0bb68bb005f5a885dca2140da90a9cb10d3c65f3
+
+COCOAPODS: 1.15.0

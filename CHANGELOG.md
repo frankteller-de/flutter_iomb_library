@@ -1,5 +1,8 @@
+## 0.9.3+9
+* Bugfixes
+
 ## 0.9.2+8
-* Upgraded to gradle:8.2.2
+* Bugfixes
 
 ## 0.9.1+7
 * Bugfixes

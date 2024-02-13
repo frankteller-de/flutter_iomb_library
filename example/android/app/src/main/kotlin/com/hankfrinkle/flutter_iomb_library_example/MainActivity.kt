@@ -1,4 +1,4 @@
-package com.hankfrinkle.flutter_iomb_library.flutter_iomb_library
+package com.hankfrinkle.flutter_iomb_library_example
 
 import io.flutter.embedding.android.FlutterActivity
 

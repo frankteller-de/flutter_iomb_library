@@ -19,7 +19,7 @@ If you are interested in pseudonym measurements look at [flutter\_infonline_libr
 - Dart sdk: `>=2.17.6 <4.0.0`
 - Flutter: `>=2.5.0`
 - Android: `minSdkVersion 19`
-- iOS: `minSdkVersion 11`
+- iOS: `minSdkVersion 12`
 - native iOS and Android INFOnline libraries
 
 You will get the native iOS and Android libraries via email from INFOnline Support. The native libraries are not public!
@@ -32,7 +32,7 @@ Add `flutter_iomb_library` as a [dependency in your pubspec.yaml file](https://f
 Open ``ios/Podfile`` in your project. Make sure platform is uncommented and has a minimum version of 11.
 
 ```bash
-platform :ios, '11.0'
+platform :ios, '12.0'
 ```
 
 Also in Podfile add pod package under use_frameworks.
@@ -51,7 +51,7 @@ Now open the ``android/app/build.gradle`` file and make sure your SDK version is
 android {
   defaultConfig {
     minSdkVersion 26
-    targetSdkVersion 34
+    targetSdkVersion 33
   }
 }
 ```
