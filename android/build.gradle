@@ -2,14 +2,14 @@ group 'com.hankfrinkle.flutter_iomb_library'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '1.9.22'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath 'com.android.tools.build:gradle:8.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -25,7 +25,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 34
+    namespace "com.hankfrinkle.flutter_iomb_library"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,5 +48,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "de.infonline:iomb-library:1.0.2"
+    implementation "de.infonline:iomb-library:1.1.0"
 }

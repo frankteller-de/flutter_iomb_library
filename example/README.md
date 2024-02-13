@@ -1,6 +1,6 @@
-# flutter_iomb_library_example
+# flutter_iomb_library
 
-Demonstrates how to use the flutter_iomb_library plugin.
+A new Flutter project.
 
 ## Getting Started
 
