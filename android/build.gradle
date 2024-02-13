@@ -26,7 +26,9 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 33
-    namespace "com.hankfrinkle.flutter_iomb_library"
+    if (project.android.hasProperty("namespace")) {
+        namespace "com.hankfrinkle.flutter_iomb_library"
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
