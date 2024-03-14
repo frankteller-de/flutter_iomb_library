@@ -29,7 +29,7 @@ class MethodChannelFlutterIombLibrary extends IombLibrary {
     args.putIfAbsent('baseURL', () => baseURL);
     args.putIfAbsent('offerIdentifier', () => offerIdentifier);
     args.putIfAbsent('hybridIdentifier', () => hybridIdentifier);
-    await methodChannel.invokeMethod<void>('sessionConfiguration', args);
+    await _invokeMethod<void>('sessionConfiguration', args);
   }
 
   @override
@@ -38,13 +38,21 @@ class MethodChannelFlutterIombLibrary extends IombLibrary {
     args.putIfAbsent('type', () => type.toString().split('.').last);
     args.putIfAbsent('category', () => category);
     args.putIfAbsent('comment', () => comment);
-    await methodChannel.invokeMethod<void>('logViewEvent', args);
+    await _invokeMethod<void>('logViewEvent', args);
   }
 
   /// Nur bei Opt-out durch den Nutzer verwenden!
   @override
   Future<void> terminateSession() async {
-    await methodChannel.invokeMethod<void>('terminateSession');
+    await _invokeMethod<void>('terminateSession');
+  }
+
+  Future<T?> _invokeMethod<T>(String method, [dynamic arguments]) async {
+    try {
+      return await methodChannel.invokeMethod('someMethod');
+    } catch (e) {
+      return null;
+    }
   }
 }
 
