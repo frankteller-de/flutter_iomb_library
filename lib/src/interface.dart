@@ -51,6 +51,10 @@ abstract class IombLibrary extends PlatformInterface {
   Future<void> terminateSession() {
     throw UnimplementedError('terminateSession() has not been implemented.');
   }
+
+  void setFlutterDebugModeEnabled(bool enable) {
+    throw UnimplementedError('setFlutterDebugModeEnabled() has not been implemented.');
+  }
 }
 
 abstract class IombLibraryPlatformIOS {

@@ -23,6 +23,8 @@ class MethodChannelFlutterIombLibrary extends IombLibrary {
   @override
   final PlatformAndroid android = PlatformAndroid();
 
+  bool _flutterDebugMode = false;
+
   @override
   Future<void> sessionConfiguration({required String baseURL, required String offerIdentifier, String? hybridIdentifier}) async {
     Map<String, dynamic> args = <String, dynamic>{};
@@ -47,10 +49,20 @@ class MethodChannelFlutterIombLibrary extends IombLibrary {
     await _invokeMethod<void>('terminateSession');
   }
 
+  @override
+  void setFlutterDebugModeEnabled(bool enable) {
+    _flutterDebugMode = enable;
+  }
+
   Future<T?> _invokeMethod<T>(String method, [dynamic arguments]) async {
     try {
-      return await methodChannel.invokeMethod('someMethod');
+      return await methodChannel.invokeMethod(method, arguments);
     } catch (e) {
+      if (_flutterDebugMode) {
+        if (kDebugMode) {
+          print('IombLibrary error: $e');
+        }
+      }
       return null;
     }
   }

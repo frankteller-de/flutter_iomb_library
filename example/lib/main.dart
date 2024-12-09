@@ -4,6 +4,7 @@ import 'package:flutter_iomb_library/flutter_iomb_library.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  IombLibrary.instance.setFlutterDebugModeEnabled(true);
   await IombLibrary.instance.android.setDebugModeEnabled(true);
   await IombLibrary.instance.ios.setDebugLogLevel(IOMBDebugLevel.trace);
 

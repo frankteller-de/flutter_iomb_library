@@ -1,3 +1,7 @@
+## 0.9.6+12
+* IombLibrary.instance.setFlutterDebugModeEnabled(true) added
+* Bugfixes
+
 ## 0.9.5+11
 * Bugfixes
 
