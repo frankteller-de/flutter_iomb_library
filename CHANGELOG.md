@@ -1,3 +1,6 @@
+## 0.9.7
+* Update from de.infonline:iomb-library:1.1.0 to 1.1.2
+
 ## 0.9.6+12
 * IombLibrary.instance.setFlutterDebugModeEnabled(true) added
 * Bugfixes
