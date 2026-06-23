@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '12.0'
+platform :ios, '13.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -35,7 +35,7 @@ target 'Runner' do
   target 'RunnerTests' do
     inherit! :search_paths
   end
-  pod 'IOMbLibrary', :git => 'https://repo.infonline.de/iom/base/sensors/app/ios.git'
+  pod 'IOMbLibrary', :git => 'https://github.com/INFOnline-sg/libs-appsensor-iomb-ios.git'
 end
 
 post_install do |installer|

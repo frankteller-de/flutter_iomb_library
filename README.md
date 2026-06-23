@@ -40,7 +40,7 @@ Also in Podfile add pod package under use_frameworks.
 ```bash
 target 'Runner' do
   use_frameworks!
-  pod 'IOMbLibrary', :git => 'https://<user>:<pass>@repo.infonline.de/iom/base/sensors/app/ios.git'
+  pod 'IOMbLibrary', :git => 'https://github.com/INFOnline-sg/libs-appsensor-iomb-ios.git'
 end
 ```
 
@@ -56,20 +56,16 @@ android {
 }
 ```
 
-Open the ``android/build.gradle`` and add the maven source.
+Open the ``android/build.gradle`` and add the maven source. A GitHub classic PAT with read:packages permission should be provided.
 ```bash
 allprojects {
   repositories {
   maven {
-    url "https://repo.infonline.de/api/v4/projects/5/packages/maven"
-    name "INFOnline"
+    url "https://maven.pkg.github.com/INFOnline-sg/libs-appsensor-iomb-android"
 
-    credentials(HttpHeaderCredentials) {
-      name = "Private-Token"
-      value = '[DEVELOPER-ACCESS-TOKEN]'
-    }
-    authentication {
-      header(HttpHeaderAuthentication)
+    credentials {
+      username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
+      password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
     }
   }
 }
