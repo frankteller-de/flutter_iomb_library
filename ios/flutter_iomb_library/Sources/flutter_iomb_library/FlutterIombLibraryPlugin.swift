@@ -2,10 +2,10 @@ import Flutter
 import UIKit
 import IOMbLibrary
 
-public class SwiftFlutterIombLibraryPlugin: NSObject, FlutterPlugin {
+public class FlutterIombLibraryPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "flutter_iomb_library", binaryMessenger: registrar.messenger())
-    let instance = SwiftFlutterIombLibraryPlugin()
+    let instance = FlutterIombLibraryPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
