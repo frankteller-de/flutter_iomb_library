@@ -16,60 +16,61 @@ If you are interested in pseudonym measurements look at [flutter\_infonline_libr
 * ÖWA (INFOnline Library iOS/Android)
 
 ## Requirements
-- Dart sdk: `>=2.17.6 <4.0.0`
-- Flutter: `>=2.5.0`
-- Android: `minSdkVersion 19`
-- iOS: `minSdkVersion 12`
-- native iOS and Android INFOnline libraries
 
-You will get the native iOS and Android libraries via email from INFOnline Support. The native libraries are not public!
+Flutter >=3.44 / Dart >=3.12, Java 17, Android API 21+, and iOS 13+.
+The consuming Flutter SDK may require higher OS versions (Flutter 3.47: API 24 / iOS 15).
+The Dart API is unchanged; older Flutter projects must use the previous release line.
+Examples use Flutter 3.47, AGP 9.1 / Gradle 9.3.1, and iOS 15.
 
 ## Configuration
 
-Add `flutter_iomb_library` as a [dependency in your pubspec.yaml file](https://flutter.io/using-packages/).
-
 ### iOS
-Open ``ios/Podfile`` in your project. Make sure platform is uncommented and has a minimum version of 11.
 
-```bash
-platform :ios, '12.0'
-```
+Swift Package Manager (default in Flutter 3.44+) and CocoaPods share the same Swift source.
+SwiftPM resolves [IOMbLibrary 1.2.0](https://github.com/INFOnline-sg/libs-appsensor-iomb-ios), including its privacy manifest.
+For CocoaPods, add this source inside the Runner target; remove it when this plugin uses SwiftPM to avoid linking the SDK twice:
 
-Also in Podfile add pod package under use_frameworks.
-
-```bash
-target 'Runner' do
-  use_frameworks!
-  pod 'IOMbLibrary', :git => 'https://github.com/INFOnline-sg/libs-appsensor-iomb-ios.git'
-end
+```ruby
+pod 'IOMbLibrary', :git => 'https://github.com/INFOnline-sg/libs-appsensor-iomb-ios.git', :tag => '1.2.0'
 ```
 
 ### Android
-Now open the ``android/app/build.gradle`` file and make sure your SDK version is >= 19.
 
-```bash
-android {
-  defaultConfig {
-    minSdkVersion 26
-    targetSdkVersion 33
-  }
-}
-```
+The plugin uses `de.infonline:iomb-library:1.1.2`. Add its repository to the app:
 
-Open the ``android/build.gradle`` and add the maven source. A GitHub classic PAT with read:packages permission should be provided.
-```bash
-allprojects {
-  repositories {
-  maven {
-    url "https://maven.pkg.github.com/INFOnline-sg/libs-appsensor-iomb-android"
-
+```groovy
+maven {
+    url 'https://maven.pkg.github.com/INFOnline-sg/libs-appsensor-iomb-android'
     credentials {
-      username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
-      password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
+        username = project.findProperty('gpr.user') ?: System.getenv('GITHUB_USERNAME')
+        password = project.findProperty('gpr.token') ?: System.getenv('GITHUB_TOKEN')
     }
-  }
+    content { includeGroup('de.infonline') }
 }
 ```
+
+Keep credentials in user-level Gradle properties or environment variables; the token needs package-read access.
+For Android below API 26, enable core-library desugaring in the **app** module:
+
+```groovy
+android {
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
+}
+```
+
+### Android tooling
+
+The plugin uses `kotlin.compilerOptions` and lets Flutter provide Kotlin integration.
+Flutter 3.44 supports the legacy Kotlin setup; Flutter 3.47 / AGP 9 supports built-in Kotlin.
+Enable `android.builtInKotlin=true` only after all app plugins support it, and retain Flutter's `android.newDsl=false` setting.
+See the example for configuration. Validate a minified release build with your vendor credentials and measurement identifiers.
 
 # Usage
 Simple example to test the plugin in your project.

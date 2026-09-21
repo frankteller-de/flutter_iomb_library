@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "libs-appsensor-iomb-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/INFOnline-sg/libs-appsensor-iomb-ios.git",
+      "state" : {
+        "revision" : "53f19df44812ba2806de41d4a9c00ffae8ec58ac",
+        "version" : "1.2.0"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '13.0'
+platform :ios, '15.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -35,7 +35,11 @@ target 'Runner' do
   target 'RunnerTests' do
     inherit! :search_paths
   end
-  pod 'IOMbLibrary', :git => 'https://github.com/INFOnline-sg/libs-appsensor-iomb-ios.git'
+  # SwiftPM owns this SDK when enabled; CocoaPods is the fallback.
+  dependencies = JSON.parse(File.read(File.join('..', '.flutter-plugins-dependencies')))
+  unless flutter_get_swift_package_manager_enabled(dependencies, 'ios')
+    pod 'IOMbLibrary', :git => 'https://github.com/INFOnline-sg/libs-appsensor-iomb-ios.git', :tag => '1.2.0'
+  end
 end
 
 post_install do |installer|
